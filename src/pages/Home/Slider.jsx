@@ -11,6 +11,7 @@ import { Autoplay, Navigation } from "swiper";
 import { Arrow } from "../../components/Arrow";
 import { useArrow } from "../../hooks/useArrow";
 
+
 export const Slider = () => {
   const { sliderRef, handleClick } = useArrow();
 
@@ -146,7 +147,7 @@ const Title = styled.h1`
 `;
 
 const Desc = styled.p`
-  font-size: clamp(1rem, 1.5rem, 2rem);
+  font-size: clamp(1rem, 1.2rem, 2rem);
   font-weight: 500;
   letter-spacing: 3px;
 `;
