@@ -5,7 +5,7 @@ import { tablet } from '../helpers/responsive';
 
 export const PageNotFound = () => {
 	return (
-		<Container>
+		<Container className='full__bleed'>
 			<Title>404</Title>
 			<h2>Page not found</h2>
 			<Button to='/'>
