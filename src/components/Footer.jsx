@@ -53,15 +53,15 @@ export const Footer = () => {
             <Title>Contact</Title>
             <ContactItem>
               <img src={Placeholder} loading="lazy" alt="Placeholder" />
-              Padre Hurtado 650, Chañaral, Región de Atacama
+              <span>Arauco 2407, El Salvador, Chile</span>
             </ContactItem>
             <ContactItem>
               <img src={Telephone} loading="lazy" alt="Telephone" />
-              +56 9 45178236
+              <span>+56 9 45178244</span>
             </ContactItem>
             <ContactItem>
               <img src={Mail} loading="lazy" alt="Mail" />
-              dssh27@gmail.com
+              <span>dssh24@gmail.com</span>
             </ContactItem>
             <Payment src={PaymentLogos} loading="lazy" title="payment" />
           </Right>
@@ -84,26 +84,23 @@ const Content = styled.div`
   display: flex;
   flex-direction: row;
   width: min(1200px, 100%);
-  ${tablet({ flexDirection: "column", gap: "30px" })}
+  ${tablet({ flexDirection: "column", gap: "1rem" })}
 `;
 
-const Title = styled.h3`
-  margin-bottom: 30px;
-  ${tablet({ marginBottom: "20px" })}
-`;
+const Title = styled.h3``;
 
 // Footer Left
 const Left = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 `;
 
 const Logo = styled.h1``;
 
 const Desc = styled.div`
   width: min(300px, 90ch);
-  margin: 20px 0;
 `;
 
 const SocialContainer = styled.div`
@@ -132,6 +129,9 @@ const SocialIcon = styled.div`
 
 const Center = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const List = styled.ul`
@@ -184,4 +184,5 @@ const ContactItem = styled.div`
 
 const Payment = styled.img`
   width: 250px;
+  height: auto;
 `;
