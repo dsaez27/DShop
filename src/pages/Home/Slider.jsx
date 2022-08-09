@@ -19,7 +19,7 @@ export const Slider = () => {
     <>
       <Container className="full__bleed">
         <ArrowContainer direction="left" onClick={() => handleClick("left")}>
-          <Arrow direction="left" width="15%" />
+          <Arrow direction="left" width="10%" />
         </ArrowContainer>
         <Swiper
           autoplay={{
@@ -64,7 +64,7 @@ export const Slider = () => {
           ))}
         </Swiper>
         <ArrowContainer direction="right" onClick={() => handleClick("right")}>
-          <Arrow direction="right" width="15%" />
+          <Arrow direction="right" width="10%" />
         </ArrowContainer>
       </Container>
     </>
@@ -75,6 +75,8 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-block: 2rem;
+  background: #fff;
 
   ${tablet({ paddingInline: "0.5rem" })};
 
@@ -83,6 +85,10 @@ const Container = styled.div`
       .swiper-slide-prev,
       .swiper-slide-next {
         opacity: 0.5;
+        
+        div{
+          height: calc(100% - 2rem);
+        }
       }
     }
   }
