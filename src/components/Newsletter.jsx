@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { mobile, tablet } from "../helpers/responsive";
 import Send from "../Assets/send.png";
-import { Wrapper } from "./styles/Wrapper";
 
 export const Newsletter = () => {
   return (
