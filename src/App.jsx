@@ -1,10 +1,15 @@
-import React from 'react';
-import { AppRouter } from './routes/AppRouter';
+import { BrowserRouter } from "react-router-dom";
+import GlobalStyles from "./globalStyles";
+import { AppRouter } from "./routes/AppRouter";
+import "swiper/css/bundle";
 
-export const App = () => {
-	return (
-		<>
-			<AppRouter />
-		</>
-	);
+const App = () => {
+    return (
+        <BrowserRouter>
+            <GlobalStyles />
+            <AppRouter />
+        </BrowserRouter>
+    );
 };
+
+export default App;

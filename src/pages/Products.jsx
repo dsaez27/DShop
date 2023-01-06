@@ -1,10 +1,8 @@
-import React from 'react';
-import Grid from '../components/Grid';
+import React from "react";
+import Grid from "@/components/Grid";
 
-export const Products = () => {
-	return (
-		<>
-			
-		</>
-	);
+const Products = () => {
+    return <></>;
 };
+
+export default Products;

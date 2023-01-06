@@ -1,25 +1,32 @@
-import { applyMiddleware, compose, createStore } from "redux";
+import { configureStore, combineReducers, compose } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
-import { loadState, saveState } from "./redux/localStorage";
-import { rootReducer } from "./redux/reducers/rootReducers";
+import storage from "redux-persist/lib/storage";
+import { persistStore, persistReducer } from "redux-persist";
+import wishlistSlice from "./features/wishlist/wishlistSlice";
+import userSlice from "./features/user/userSlice";
 
-const persistState = loadState();
-const middlewares = [thunk];
+const persistConfig = {
+    key: "root",
+    storage,
+};
 
-// Compose enhancers Se utiliza para agregar middleware a la tienda.
-const composeEnhancers =
-    (typeof window !== "undefined" &&
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-    compose;
-
-const store = createStore(
-    rootReducer,
-    persistState,
-    composeEnhancers(applyMiddleware(...middlewares))
+const persistedReducer = persistReducer(
+    persistConfig,
+    combineReducers({
+        user: userSlice,
+        wishlist: wishlistSlice,
+    })
 );
 
-store.subscribe(() => {
-    saveState(store.getState());
-});
+export const store = configureStore(
+    {
+        reducer: persistedReducer,
+        devTools: process.env.NODE_ENV !== "production",
+        middleware: [thunk],
+    },
+    (window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__()) ||
+        compose
+);
 
-export default store;
+export const persistor = persistStore(store);

@@ -1,6 +1,7 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from "react-router-dom";
 
-export const PublicRoute = ({ isAuthenticated }) => {
-    return !isAuthenticated ? <Outlet /> : <Navigate to='/' />;
+const PublicRoutes = ({ isAuth }) => {
+    return !isAuth ? <Outlet /> : <Navigate replace to="/" />;
 };
+
+export default PublicRoutes;
